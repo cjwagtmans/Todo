@@ -13,11 +13,8 @@ body {
 	background:#C0C0C0;
 }
 
-table {
-	
-}
-
 thead {
+	margin-bottom: 50px;
 }
 
 th {
@@ -29,14 +26,6 @@ table {
 	margin: 0 auto;
 }
 
-td {
-	border-bottom: 1px solid white;
-}
-
 td:first-of-type {
-	width: 60%;
-}
-
-td:last-of-type{
-	width: 10%;
-}
+	width: 50%;
+};
