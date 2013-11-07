@@ -12,8 +12,11 @@ $(document).ready(function(){
 				var date = $(this).find('date').text();
 				var done = $(this).find('done').text();
 				//USE appendTo FOR PUTTING THE FOUND DATA AFTER THE LAST ONE
-				$('<tr><td>'+name+'</td><td>'+date+'</td><td>'+done+'</td></tr>').appendTo('#todo');
+				$('<tr><td>'+name+'</td>').appendTo('#todo');
+				$('<td>'+date+'</td>').appendTo('#todo');
+				$('<td>'+done+'</td></tr>').appendTo('#todo');
 			});
 		}
 	});
 });
+
