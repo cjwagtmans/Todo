@@ -14,7 +14,7 @@ body {
 }
 
 thead {
-	
+	margin-bottom: 50px;
 }
 
 th {
@@ -25,3 +25,7 @@ table {
 	width: 90%;
 	margin: 0 auto;
 }
+
+td:first-of-type {
+	width: 50%;
+};
