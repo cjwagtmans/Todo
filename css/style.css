@@ -3,6 +3,10 @@
 	padding: 0;
 }
 
+body {
+	font-family: arial;
+}
+
 #wrapper {
 	width: 500px;
 	margin: 0 auto;
@@ -10,7 +14,7 @@
 }
 
 thead {
-	text-align: center;
+	
 }
 
 table {
