@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
 	//GET ALL TODO'S FORM XML FILE
 	$.ajax({
 		type: "GET",
@@ -16,4 +15,20 @@ $(document).ready(function(){
 			});
 		}
 	});
+
+	$('button[name="save"]').click(function(){
+		console.log("test");
+	});
+
+	// submitData(name, date){
+	// 	$.ajax({
+	// 	    url: ajaxurl,
+	// 	    data: "<test></test>", 
+	// 	    type: 'POST',
+	// 	    contentType: "text/xml",
+	// 	    dataType: "text",
+	// 	    success : parse
+	// 	    } 
+	// 	}); 
+	// }
 });
