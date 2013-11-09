@@ -1,34 +1,34 @@
 $(document).ready(function(){
-	//GET ALL TODO'S FORM XML FILE
-	$.ajax({
-		type: "GET",
-		url: "data/todo.xml",
-		dataType: "xml",
-		success: function(xml) {
-			//USE EACH FUNCTION TO LOOP THROUGH ALL THE TODOS IN THE XML FILE
-			$(xml).find('task').each(function(){
-				var name = $(this).find('name').text();
-				var date = $(this).find('date').text();
-				var done = $(this).find('done').text();
-				//USE appendTo FOR PUTTING THE FOUND DATA AFTER THE LAST ONE
-				$('<tr><td>'+name+'</td><td>'+date+'</td><td>'+done+'</td></tr>').appendTo('#todo');
-			});
-		}
-	});
+
+	if (localStorage.getItem("tasks") !== null) {
+		updateTables();
+	}
+	var tasks = [];
+	var taskList = [];
+
+	function updateTables(){
+		$("#todo>tbody>tr").remove();
+		taskList = JSON.parse(localStorage["tasks"]);
+		console.log(taskList);
+		console.log(taskList.length);
+		$.each(taskList, function(key, value){
+			if(value.done=="yes"){
+				$("#todo").append("<tr><td>"+value.name+"</td><td>"+value.date+"</td><td><input type=\"checkbox\" checked/></td></tr>");
+			}
+			else{
+				$("#todo").append("<tr><td>"+value.name+"</td><td>"+value.date+"</td><td><input type=\"checkbox\"/></td></tr>");
+			}
+			//console.log(value.date);
+		});
+	}	 
 
 	$('button[name="save"]').click(function(){
-		console.log("test");
+		var name = $('input[name="taskname"]').val();
+		var date = $('input[name="date"]').val();
+		var task = {name:name,date:date,done:"no"};
+		tasks.push(task);
+		localStorage["tasks"] = JSON.stringify(tasks);
+		updateTables();
 	});
-
-	// submitData(name, date){
-	// 	$.ajax({
-	// 	    url: ajaxurl,
-	// 	    data: "<test></test>", 
-	// 	    type: 'POST',
-	// 	    contentType: "text/xml",
-	// 	    dataType: "text",
-	// 	    success : parse
-	// 	    } 
-	// 	}); 
-	// }
 });
+
